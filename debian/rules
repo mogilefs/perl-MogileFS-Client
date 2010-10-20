@@ -40,7 +40,7 @@ binary-indep: build install
 	dh_installdocs
 	dh_installman
 	dh_installchangelogs
-	dh_install --sourcedir=debian/MogileFS --fail-missing
+	dh_install --sourcedir=debian/perl-MogileFS --fail-missing
 	dh_link
 	dh_strip
 	dh_compress
