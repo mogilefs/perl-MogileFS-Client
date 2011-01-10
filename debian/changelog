@@ -1,3 +1,29 @@
+libmogilefs-perl (1.14-2) stable; urgency=low
+
+  * fixed packaging with perl-MogileFS-Client as base directory
+
+ -- Andre Pascha <bender@duese.org>  Mon, 10 Jan 2011 16:20:21 +0100
+
+libmogilefs-perl (1.14-1) lenny; urgency=low
+
+  * new upstream release
+
+ -- root <root@dev1.nbg1.kwick.de>  Mon, 10 Jan 2011 13:38:55 +0100
+
+libmogilefs-perl (1.13-1kwick1) lenny; urgency=low
+
+  * moved to gibthub version
+  * debian package version coresponds to github release now
+
+ -- root <root@dev1.nbg1.kwick.de>  Fri, 08 Oct 2010 17:19:10 +0200
+
+libmogilefs-perl (1.00-1kwick1) lenny; urgency=low
+
+  * Non-maintainer upload.
+  * SVN snapshot of 06 Oct 2010
+
+ -- root <root@dev1.nbg1.kwick.de>  Thu, 07 Oct 2010 17:43:59 +0200
+
 libmogilefs-perl (1.00-1) unstable; urgency=low
 
   * Initial release
