@@ -1,3 +1,5 @@
+   * Fix to error message when writing a file "completely fails" (Graham Barr)
+
 1.14 - 2011-01-08
 
    * support the file_debug command (dormando <dormando@rydia.net>)
