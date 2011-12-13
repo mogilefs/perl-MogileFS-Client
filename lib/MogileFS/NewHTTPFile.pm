@@ -233,7 +233,13 @@ sub _write {
 
     # total failure (croak)
     $self->{sock} = undef;
-    _fail(sprintf("unable to write to any allocated storage node, last tried dev %s on host %s uri %s. Had sent %s bytes, %s bytes left", $self->{devid}, $self->{host}, $self->{uri}, $self->{path}, $self->{bytes_out}, $bytesleft));
+    _fail(
+        sprintf(
+            "unable to write to any allocated storage node, last tried dev %s on host %s uri %s path %s. Had sent %s bytes, %s bytes left",
+            $self->{devid}, $self->{host},      $self->{uri},
+            $self->{path},  $self->{bytes_out}, $bytesleft
+        )
+    );
 }
 
 sub PRINT {
