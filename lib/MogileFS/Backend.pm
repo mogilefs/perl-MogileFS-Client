@@ -9,6 +9,7 @@ use Socket qw( MSG_NOSIGNAL PF_INET IPPROTO_TCP SOCK_STREAM );
 use Errno qw( EINPROGRESS EWOULDBLOCK EISCONN );
 use POSIX ();
 use MogileFS::Client;
+use List::Util qw/ shuffle /;
 
 use fields ('hosts',        # arrayref of "$host:$port" of mogilefsd servers
             'host_dead',    # "$host:$port" -> $time  (of last connect failure)
@@ -18,6 +19,7 @@ use fields ('hosts',        # arrayref of "$host:$port" of mogilefsd servers
             'pref_ip',      # hashref; { ip => preferred ip }
             'timeout',      # time in seconds to allow sockets to become readable
             'last_host_connected',  # "ip:port" of last host connected to
+            'last_host_idx', # array index of the last host we connected to
             'hooks',        # hash: hookname -> coderef
             );
 
@@ -58,6 +60,8 @@ sub _init {
             if $args{timeout} && $args{timeout} !~ /^\d+$/;
         $self->{timeout} = $args{timeout} || 3;
     }
+
+    $self->{hosts} = [ shuffle(@{ $self->{hosts} }) ];
 
     $self->{host_dead} = {};
 
@@ -310,12 +314,16 @@ sub _get_sock {
 
     my $size = scalar(@{$self->{hosts}});
     my $tries = $size > 15 ? 15 : $size;
-    my $idx = int(rand() * $size);
+
+    unless (defined($self->{last_host_idx})) {
+        $self->{last_host_idx} = int(rand() * $size);
+    }
 
     my $now = time();
     my $sock;
     foreach (1..$tries) {
-        my $host = $self->{hosts}->[$idx++ % $size];
+        $self->{last_host_idx} = ($self->{last_host_idx}+1) % $size;
+        my $host = $self->{hosts}->[$self->{last_host_idx}];
 
         # try dead hosts every 5 seconds
         next if $self->{host_dead}->{$host} &&

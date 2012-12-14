@@ -21,6 +21,7 @@ WriteMakefile(
         'LWP::Simple'     => 0,
         fields            => 0,
         'Test::More'      => 0,
+        'List::Util'      => 0,
     },
 );
 
