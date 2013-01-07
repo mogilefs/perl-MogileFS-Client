@@ -9,6 +9,7 @@ use Socket qw( MSG_NOSIGNAL PF_INET IPPROTO_TCP SOCK_STREAM );
 use Errno qw( EINPROGRESS EWOULDBLOCK EISCONN );
 use POSIX ();
 use MogileFS::Client;
+use List::Util qw/ shuffle /;
 
 use fields ('hosts',        # arrayref of "$host:$port" of mogilefsd servers
             'host_dead',    # "$host:$port" -> $time  (of last connect failure)
@@ -59,6 +60,8 @@ sub _init {
             if $args{timeout} && $args{timeout} !~ /^\d+$/;
         $self->{timeout} = $args{timeout} || 3;
     }
+
+    $self->{hosts} = [ shuffle(@{ $self->{hosts} }) ];
 
     $self->{host_dead} = {};
 
