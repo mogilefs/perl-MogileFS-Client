@@ -188,7 +188,6 @@ sub do_request {
         $self->{'lasterr'} = $1;
         $self->{'lasterrstr'} = $2 ? _unescape_url_string($2) : undef;
         _debug("LASTERR: $1 $2");
-        undef $self->{sock_cache};
         return undef;
     }
 
