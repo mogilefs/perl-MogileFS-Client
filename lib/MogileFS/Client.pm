@@ -185,6 +185,19 @@ sub errcode {
     return $self->{backend}->errcode;
 }
 
+=head2 force_reconnect
+
+Forces the client to reconnect to the tracker, or if possible a different
+tracker.  A paranoid application may wish to do to this before retrying a
+failed command, on the off chance that another tracker may be working better.
+
+=cut
+
+sub force_reconnect {
+    my MogileFS::Client $self = shift;
+    return $self->{backend}->force_reconnect();
+}
+
 =head2 readonly
 
   $is_readonly = $mogc->readonly
