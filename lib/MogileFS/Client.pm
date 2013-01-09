@@ -185,17 +185,18 @@ sub errcode {
     return $self->{backend}->errcode;
 }
 
-=head2 force_reconnect
+=head2 force_disconnect
 
-Forces the client to reconnect to the tracker, or if possible a different
-tracker.  A paranoid application may wish to do to this before retrying a
+Forces the client to disconnect from the tracker, causing it to reconnect
+when the next request is made.  It will reconnect to a different tracker if
+possible.  A paranoid application may wish to do to this before retrying a
 failed command, on the off chance that another tracker may be working better.
 
 =cut
 
-sub force_reconnect {
+sub force_disconnect {
     my MogileFS::Client $self = shift;
-    return $self->{backend}->force_reconnect();
+    return $self->{backend}->force_disconnect();
 }
 
 =head2 readonly
