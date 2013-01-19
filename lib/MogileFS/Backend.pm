@@ -224,6 +224,12 @@ sub err {
     return $self->{lasterr} ? 1 : 0;
 }
 
+sub force_disconnect {
+    my MogileFS::Backend $self = shift;
+    undef $self->{sock_cache};
+    return;
+}
+
 ################################################################################
 # MogileFS::Backend class methods
 #
