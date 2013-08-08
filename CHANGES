@@ -1,3 +1,11 @@
+1.17 - 2013-08-07
+
+   * Makefile.PL: declare explicit Time::HiRes dependency (Eric Wong <normalperson@yhbt.net>)
+
+   * add force_disconnect function (Dave Lambley <davel@state51.co.uk>)
+
+   * avoid retrying bad trackers (Dave Lambley <davel@state51.co.uk>)
+
 1.16 - 2012-03-30
 
    * Allow fetching hashtype in get_domains (eric wong)

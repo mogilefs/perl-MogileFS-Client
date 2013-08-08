@@ -10,5 +10,6 @@ META.yml                                 Module meta-data (added by MakeMaker)
 t/00use.t
 t/10-basics.t
 t/20-edit.t
+t/30-disconnect.t
 CHANGES
 TODO
