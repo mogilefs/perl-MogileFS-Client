@@ -4,10 +4,8 @@ use strict;
 use Test::More;
 use MogileFS::Client;
 
-my $obj = bless({
-    backend => bless({
-    }, 'MogileFS::Backend')
-}, 'MogileFS::Client');
+my $obj = fields::new('MogileFS::Client');
+$obj->{backend} = fields::new('MogileFS::Backend');
 
 isa_ok($obj, 'MogileFS::Client');
 
