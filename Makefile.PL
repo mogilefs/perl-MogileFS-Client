@@ -24,5 +24,10 @@ WriteMakefile(
         'Test::More'      => 0,
         'List::Util'      => 0,
     },
+    META_MERGE => {
+        resources => {
+            repository => 'https://github.com/mogilefs/perl-MogileFS-Client',
+        },
+    },
 );
 
