@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-#   Perl Makefile for Danga-Socket
+#   Perl Makefile for MogileFS-Client
 #   $Id$
 #
 #   Invoke with 'perl Makefile.PL'
@@ -23,6 +23,16 @@ WriteMakefile(
         fields            => 0,
         'Test::More'      => 0,
         'List::Util'      => 0,
+    },
+    META_MERGE              => {
+        'meta-spec' => { version => 2 },
+        resources => {
+            repository => {
+                type => 'git',
+                url  => 'https://github.com/mogilefs/perl-MogileFS-Client.git',
+                web  => 'https://github.com/mogilefs/perl-MogileFS-Client',
+            },
+        },
     },
 );
 
