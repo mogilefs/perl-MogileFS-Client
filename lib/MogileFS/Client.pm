@@ -330,7 +330,7 @@ sub new_file {
 
   $mogc->edit_file($key, $opts_hashref)
 
-Edit the file with the the given key.
+Edit the file with the given key.
 
 
 B<NOTE:> edit_file is currently EXPERIMENTAL and not recommended for
@@ -404,7 +404,7 @@ sub edit_file {
 
   $mogc->read_file($key)
 
-Read the file with the the given key.
+Read the file with the given key.
 
 Returns a seekable filehandle you can read() from. Note that you cannot
 read line by line using <$fh> notation.
@@ -883,7 +883,7 @@ sub update_class {
 Weird option for old, weird network architecture.  Sets a mapping
 table of preferred alternate IPs, if reachable.  For instance, if
 trying to connect to 10.0.0.2 in the above example, the module would
-instead try to connect to 10.2.0.2 quickly first, then then fall back
+instead try to connect to 10.2.0.2 quickly first, then fall back
 to 10.0.0.2 if 10.2.0.2 wasn't reachable.
 
 =cut
