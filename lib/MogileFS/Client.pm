@@ -195,7 +195,7 @@ failed command, on the off chance that another tracker may be working better.
 =cut
 
 sub force_disconnect {
-    my MogileFS::Client $self = shift;
+    my $self = shift;
     return $self->{backend}->force_disconnect();
 }
 
