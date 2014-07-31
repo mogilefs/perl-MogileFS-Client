@@ -225,7 +225,7 @@ sub err {
 }
 
 sub force_disconnect {
-    my MogileFS::Backend $self = shift;
+    my $self = shift;
     undef $self->{sock_cache};
     return;
 }
